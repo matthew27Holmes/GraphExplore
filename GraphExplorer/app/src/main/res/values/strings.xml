@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">GraphExplorer</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="search_house_companies">Search House Companies</string>
+    <string name="diagram_title">Diagram Title</string>
+</resources>
