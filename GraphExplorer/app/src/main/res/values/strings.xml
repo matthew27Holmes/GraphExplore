@@ -5,4 +5,8 @@
     <string name="title_notifications">Notifications</string>
     <string name="search_house_companies">Search House Companies</string>
     <string name="diagram_title">Diagram Title</string>
+    <string name="contact_det">contact det</string>
+    <string name="name">Name</string>
+    <string name="surname">Surname</string>
+    <string name="email">Email</string>
 </resources>

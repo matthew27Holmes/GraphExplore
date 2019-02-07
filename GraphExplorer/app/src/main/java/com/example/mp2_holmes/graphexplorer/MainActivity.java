@@ -6,6 +6,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,6 +21,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        RecyclerView recList = (RecyclerView) findViewById(R.id.cardList);
+        recList.setHasFixedSize(true);
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        recList.setLayoutManager(llm);
+
+        nodeAdapter ca = new nodeAdapter(createList(30));
+        recList.setAdapter(ca);
 
     }
 
@@ -30,8 +41,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    private List<nodeInfo> createList(int size) {
 
+        List<nodeInfo> result = new ArrayList<nodeInfo>();
+        for (int i=1; i <= size; i++) {
+            nodeInfo ci = new nodeInfo();
+            ci.name = nodeInfo.NAME_PREFIX + i;
+            ci.surname = nodeInfo.SURNAME_PREFIX + i;
+            ci.email = nodeInfo.EMAIL_PREFIX + i + "@test.com";
 
+            result.add(ci);
+
+        }
+        return result;
+    }
 
     public void ShareResults(View view) {
     }
