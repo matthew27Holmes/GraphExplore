@@ -9,4 +9,11 @@
     <string name="name">Name</string>
     <string name="surname">Surname</string>
     <string name="email">Email</string>
+    <string name="address">Address</string>
+    <string name="country">Country</string>
+    <string name="status">Status</string>
+    <string name="companynumber">CompanyNumber</string>
+    <string name="title">Title</string>
+    <string name="test1">test1</string>
+    <string name="seachparmeter">SeachParmeter</string>
 </resources>

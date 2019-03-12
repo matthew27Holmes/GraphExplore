@@ -1,9 +1,11 @@
 package com.example.mp2_holmes.graphexplorer;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -11,11 +13,12 @@ import java.util.List;
 public class nodeAdapter  extends RecyclerView.Adapter<nodeAdapter.nodeViewHolder> {
 
     private List<nodeInfo> contactList;
+    private Context context;
 
-    public nodeAdapter(List<nodeInfo> contactList) {
+    public nodeAdapter(List<nodeInfo> contactList, Context context) {
         this.contactList = contactList;
+        this.context = context;
     }
-
 
     @Override
     public int getItemCount() {
@@ -23,14 +26,22 @@ public class nodeAdapter  extends RecyclerView.Adapter<nodeAdapter.nodeViewHolde
     }
 
     @Override
-    public void onBindViewHolder(nodeViewHolder contactViewHolder, int i) {
+    public void onBindViewHolder(nodeViewHolder contactViewHolder, final int i) {
         nodeInfo ci = contactList.get(i);
-        contactViewHolder.vName.setText(ci.name);
-        contactViewHolder.vSurname.setText(ci.surname);
-        contactViewHolder.vEmail.setText(ci.email);
-        contactViewHolder.vTitle.setText(ci.name + " " + ci.surname);
-    }
+        contactViewHolder.vTitle.setText(nodeInfo.Company_Title + ci.title);
+        contactViewHolder.vStatus.setText(nodeInfo.Company_Status + ci.status);
+        contactViewHolder.vAddress.setText(nodeInfo.Company_Address + ci.address);
+        contactViewHolder.vNumber.setText(nodeInfo.Company_Number + ci.number);
 
+        contactViewHolder.vRelativeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nodeInfo ci = contactList.get(i);
+                MainActivity mainActivity = (MainActivity) context;
+                mainActivity.MoreDetailActivity(ci.title,ci.number);
+            }
+        });
+    }
 
     @Override
     public nodeViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
@@ -43,17 +54,19 @@ public class nodeAdapter  extends RecyclerView.Adapter<nodeAdapter.nodeViewHolde
 
     public static class nodeViewHolder extends RecyclerView.ViewHolder {
 
-        protected TextView vName;
-        protected TextView vSurname;
-        protected TextView vEmail;
+        protected TextView vStatus;
+        protected TextView vAddress;
+        protected TextView vNumber;
         protected TextView vTitle;
+        protected RelativeLayout vRelativeLayout;
 
         public nodeViewHolder(View v) {
             super(v);
-            vName = (TextView) v.findViewById(R.id.txtName);
-            vSurname = (TextView) v.findViewById(R.id.txtSurname);
-            vEmail = (TextView) v.findViewById(R.id.txtEmail);
-            vTitle = (TextView) v.findViewById(R.id.title);
+            vStatus = (TextView) v.findViewById(R.id.txtStatus);
+            vAddress = (TextView) v.findViewById(R.id.txtAddress);
+            vTitle = (TextView) v.findViewById(R.id.txtTitle);
+            vNumber = (TextView) v.findViewById(R.id.txtCompanyNumber);
+            vRelativeLayout = (RelativeLayout) v.findViewById(R.id.more_detail);
         }
     }
 }

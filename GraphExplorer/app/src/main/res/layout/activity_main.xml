@@ -7,20 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/DiagarmTitle"
-        android:layout_width="0dp"
-        android:layout_height="19dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/diagram_title"
-        app:layout_constraintEnd_toStartOf="@+id/Share"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <EditText
         android:id="@+id/SearchBar"
         android:layout_width="255dp"
@@ -37,14 +23,6 @@
         app:layout_constraintEnd_toStartOf="@+id/Search"
         app:layout_constraintStart_toEndOf="@+id/History" />
 
-    <ImageButton
-        android:id="@+id/Share"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:onClick="ShareResults"
-        app:srcCompat="@android:drawable/ic_menu_share" />
 
     <ImageButton
         android:id="@+id/Search"
@@ -55,7 +33,8 @@
         android:onClick="SearchAPI"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="?android:attr/actionModeWebSearchDrawable" />
+        app:srcCompat="?android:attr/actionModeWebSearchDrawable"
+        />
 
     <ImageButton
         android:id="@+id/History"
@@ -64,35 +43,20 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:onClick="ShowHistory"
-        app:srcCompat="?android:attr/actionModeFindDrawable" />
-
-    <ImageView
-        android:id="@+id/NodeDiagram"
-        android:layout_width="297dp"
-        android:layout_height="356dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:color/transparent" />
+        app:srcCompat="?android:attr/actionModeFindDrawable"
+        />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/cardList"
         android:layout_width="298dp"
-        android:layout_height="356dp"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/SearchBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></android.support.v7.widget.RecyclerView>
